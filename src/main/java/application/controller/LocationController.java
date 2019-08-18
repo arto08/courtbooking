@@ -89,5 +89,4 @@ public class LocationController {
 	void deleteLocation(@PathVariable Long id) {
 		repository.deleteById(id);
 	}
-
 }

@@ -1,6 +1,5 @@
 package application.model;
 
-import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,7 +11,6 @@ public class Location {
 	
 	private @Id @GeneratedValue Long id;
 	private String name;
-	//private Set<Court> courts;
 	
 	public Location() {}
 	

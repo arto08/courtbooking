@@ -1,8 +1,26 @@
 package application.model;
 
-public class Court {
-	private long id;
-	private Location location;
-	//private Set<Booking> bookings;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+import lombok.Data;
+
+@Data
+@Entity
+public class Court {
+	private @Id @GeneratedValue Long id;
+	private String name;
+	@ManyToOne
+	private Location location;
+	//private long locationID;
+
+	public Court() {}
+	
+	public Court(String name, Location location /*long locationID*/){
+		this.name = name;
+		this.location = location;
+		//this.locationID = locationID;
+	}
 }
