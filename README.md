@@ -1,5 +1,5 @@
 # courtbooking
-Court booking application. With Spring Boot. SOA
+Court booking application. With Spring Boot.
 
 A set of Courts is assosicated with a Location.
 Users can book courts.
