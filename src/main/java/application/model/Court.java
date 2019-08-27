@@ -14,13 +14,11 @@ public class Court {
 	private String name;
 	@ManyToOne
 	private Location location;
-	//private long locationID;
 
 	public Court() {}
 	
-	public Court(String name, Location location /*long locationID*/){
+	public Court(String name, Location location){
 		this.name = name;
 		this.location = location;
-		//this.locationID = locationID;
 	}
 }
