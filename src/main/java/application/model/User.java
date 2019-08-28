@@ -12,10 +12,10 @@ public class User {
 	
 	private @Id @GeneratedValue Long id;
 	private String name;
-	private String email;
-	private String password;
-	private String username;
-
 	
-
+	public User(){}
+	
+	public User(String name){
+		this.name = name;
+	}
 }
