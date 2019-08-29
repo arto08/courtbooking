@@ -4,11 +4,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import application.model.Booking;
+import application.model.Session;
 import application.model.Court;
 import application.model.Location;
 import application.model.User;
-import application.repository.BookingRepository;
+import application.repository.SessionRepository;
 import application.repository.CourtRepository;
 import application.repository.LocationRepository;
 import application.repository.UserRepository;
@@ -22,7 +22,7 @@ class LoadDatabase {
 	CommandLineRunner initDatabase(LocationRepository locationRepo,
 			UserRepository userRepo,
 			CourtRepository courtRepo,
-			BookingRepository bookingRepo) {
+			SessionRepository bookingRepo) {
 		return args -> {
 			User arto = new User("Arto");
 			User pat = new User("Pat");
@@ -31,8 +31,8 @@ class LoadDatabase {
 			Location bkHeights = new Location("Brooklyn Heights");
 			Court courtA = new Court("A", cobbleHill); 
 			Court courtB = new Court("B", cobbleHill); 
-			Booking b1 = new Booking(arto, "1000", "1045", courtA);
-			Booking b2 = new Booking(arto, "1045", "1130", courtA);
+			Session b1 = new Session(arto, "1000", "1045", courtA);
+			Session b2 = new Session(arto, "1045", "1130", courtA);
 			
 			log.info("Preloading " + locationRepo.save(cobbleHill));
 			log.info("Preloading " + locationRepo.save(bkHeights));

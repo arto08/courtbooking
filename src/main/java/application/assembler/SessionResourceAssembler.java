@@ -6,18 +6,18 @@ import org.springframework.stereotype.Component;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
-import application.controller.BookingController;
+import application.controller.SessionController;
 //import application.controller.BookingController;
 import application.model.*;
 
 @Component
-public class BookingResourceAssembler implements ResourceAssembler<Booking, Resource<Booking>> {
+public class SessionResourceAssembler implements ResourceAssembler<Session, Resource<Session>> {
 
 	@Override
-	public Resource<Booking> toResource(Booking booking) {
+	public Resource<Session> toResource(Session booking) {
 		return new Resource<>(booking, 
-				linkTo(methodOn(BookingController.class).oneBooking(booking.getId())).withSelfRel(),
-				linkTo(methodOn(BookingController.class).allBookings()).withRel("bookings")
+				linkTo(methodOn(SessionController.class).oneBooking(booking.getId())).withSelfRel(),
+				linkTo(methodOn(SessionController.class).allBookings()).withRel("bookings")
 				);
 	}
 
