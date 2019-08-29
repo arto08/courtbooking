@@ -17,7 +17,7 @@ public class SessionResourceAssembler implements ResourceAssembler<Session, Reso
 	public Resource<Session> toResource(Session booking) {
 		return new Resource<>(booking, 
 				linkTo(methodOn(SessionController.class).oneBooking(booking.getId())).withSelfRel(),
-				linkTo(methodOn(SessionController.class).allBookings()).withRel("bookings")
+				linkTo(methodOn(SessionController.class).allBookings()).withRel("sessions")
 				);
 	}
 

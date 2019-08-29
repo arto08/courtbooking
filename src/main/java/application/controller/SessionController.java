@@ -72,7 +72,7 @@ public class SessionController {
 //		return repository.findById(id).orElseThrow(() -> new BookingNotFoundException(id));
 	}
 
-	@PutMapping("/sessions/{id}") //TODO change the session to booked
+	@PutMapping("/sessions/{id}") 
 	ResponseEntity<?> replaceBooking(@RequestBody Session newSession, @PathVariable Long id)
 			throws URISyntaxException{
 

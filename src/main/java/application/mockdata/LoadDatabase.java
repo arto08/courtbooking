@@ -22,7 +22,7 @@ class LoadDatabase {
 	CommandLineRunner initDatabase(LocationRepository locationRepo,
 			UserRepository userRepo,
 			CourtRepository courtRepo,
-			SessionRepository bookingRepo) {
+			SessionRepository sessionRepo) {
 		return args -> {
 			User arto = new User("Arto");
 			User pat = new User("Pat");
@@ -31,8 +31,12 @@ class LoadDatabase {
 			Location bkHeights = new Location("Brooklyn Heights");
 			Court courtA = new Court("A", cobbleHill); 
 			Court courtB = new Court("B", cobbleHill); 
-			Session b1 = new Session(arto, "1000", "1045", courtA);
-			Session b2 = new Session(arto, "1045", "1130", courtA);
+			Session s1 = new Session("1000", "1045", courtA);
+			Session s2 = new Session("1045", "1130", courtA);
+			Session s3 = new Session("1045", "1130", courtB);
+			Session s4 = new Session("1045", "1130", courtB);
+			s1.bookSession(arto);
+			s2.bookSession(pat);
 			
 			log.info("Preloading " + locationRepo.save(cobbleHill));
 			log.info("Preloading " + locationRepo.save(bkHeights));
@@ -42,8 +46,10 @@ class LoadDatabase {
 			log.info("Preloading " + userRepo.save(steve));
 			log.info("Preloading " + courtRepo.save(courtA));
 			log.info("Preloading " + courtRepo.save(courtB));
-			log.info("Preloading " + bookingRepo.save(b1));
-			log.info("Preloading " + bookingRepo.save(b2));
+			log.info("Preloading " + sessionRepo.save(s1));
+			log.info("Preloading " + sessionRepo.save(s2));
+			log.info("Preloading " + sessionRepo.save(s3));
+			log.info("Preloading " + sessionRepo.save(s4));
 			
 		};
 	}
