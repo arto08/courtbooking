@@ -30,10 +30,4 @@ public class Session {
 		this.end = end;
 		this.court = court;
 	}
-	
-	public void bookSession(User booker){
-		this.booker = booker;
-		this.booked = true;
-	}
-
 }

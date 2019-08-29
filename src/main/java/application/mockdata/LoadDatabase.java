@@ -35,8 +35,10 @@ class LoadDatabase {
 			Session s2 = new Session("1045", "1130", courtA);
 			Session s3 = new Session("1045", "1130", courtB);
 			Session s4 = new Session("1045", "1130", courtB);
-			s1.bookSession(arto);
-			s2.bookSession(pat);
+			s2.setBooker(arto);
+			s2.setBooked(true);
+			s1.setBooker(pat);
+			s1.setBooked(true);
 			
 			log.info("Preloading " + locationRepo.save(cobbleHill));
 			log.info("Preloading " + locationRepo.save(bkHeights));

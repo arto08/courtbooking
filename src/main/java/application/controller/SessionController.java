@@ -6,6 +6,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.hateoas.Resource;
@@ -77,7 +78,11 @@ public class SessionController {
 			throws URISyntaxException{
 
 		Session updatedBooking = repository.findById(id).map(booking -> {
-			booking.setBooker(newSession.getBooker());
+			if(!booking.isBooked() && newSession.getBooker() != null){
+				booking.setBooker(newSession.getBooker());
+				booking.setBooked(true);
+			}else
+				throw new InvalidBookingException(id);
 			return repository.save(booking);
 		}).orElseGet(() -> {
 			newSession.setId(id);
